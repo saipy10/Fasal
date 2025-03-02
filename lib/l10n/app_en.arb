@@ -1,0 +1,129 @@
+{
+  "appTitle": "Fasal",
+  "pricePrediction": "Price Prediction",
+  "cropPrediction": "Crop Prediction",
+  "govtSchemes": "Government Schemes",
+  "sixMonthForecast": "6-Month Forecast",
+  "selectState": "Select State",
+  "selectCommodity": "Select Commodity",
+  "annualRainfall": "Annual Rainfall (mm)",
+  "getPrediction": "Get Prediction",
+  "predictedCropPrice": "Predicted Crop Price",
+  "chooseState": "Choose Select State",
+  "chooseCommodity": "Choose Select Commodity",
+  "pleaseFillAllFields": "Please fill all fields",
+  "error": "Error: {message}",
+  "@error": {
+    "description": "Error message with a dynamic message",
+    "placeholders": {
+      "message": {
+        "type": "String"
+      }
+    }
+  },
+  "failedToConnect": "Failed to connect to server: {error}",
+  "@failedToConnect": {
+    "description": "Connection failure message with error details",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "welcomeFarmer": "Welcome, Farmer!",
+  "stayUpdated": "Stay updated with the latest weather conditions and agricultural news.",
+  "latestUpdates": "Latest Updates",
+  "noNewsAvailable": "No news available at the moment.",
+  "noUrlAvailable": "No URL available for this article",
+  "couldNotLaunch": "Could not launch {url}",
+  "@couldNotLaunch": {
+    "description": "Message when URL cannot be launched",
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  },
+  "details": "Details",
+  "priceStatistics": "Price Statistics",
+  "averagePrice": "Average Price",
+  "minimumPrice": "Minimum Price",
+  "maximumPrice": "Maximum Price",
+  "priceTrend": "Price Trend",
+  "marketInsights": "Market Insights",
+  "priceChange": "Price Change",
+  "dataPoints": "Data Points",
+  "lastUpdated": "Last Updated",
+  "quickAnalysis": "Quick Analysis",
+  "noHistoricalData": "No historical data available for analysis.",
+  "priceTrendAnalysis": "The price trend shows a {movement} movement of {percentage}% over the recorded period.",
+  "@priceTrendAnalysis": {
+    "description": "Analysis of price trend with movement and percentage",
+    "placeholders": {
+      "movement": {
+        "type": "String"
+      },
+      "percentage": {
+        "type": "String"
+      }
+    }
+  },
+  "positive": "positive",
+  "negative": "negative",
+  "launched": "Launched",
+  "couldNotLaunchWebsite": "Could not launch website for {url}",
+  "@couldNotLaunchWebsite": {
+    "description": "Message when scheme website cannot be launched",
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  },
+  "errorLaunchingWebsite": "Error launching website: {error}",
+  "@errorLaunchingWebsite": {
+    "description": "Error message when launching website fails",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "nmeoOilseedsTitle": "National Mission on Edible Oils - Oilseeds (NMEO-Oilseeds)",
+  "nmeoOilseedsDescription": "Aims to boost domestic oilseed production and achieve self-reliance in edible oils over {dateRange} with {budget}.",
+  "@nmeoOilseedsDescription": {
+    "placeholders": {
+      "dateRange": {"type": "String"},
+      "budget": {"type": "String"}
+    }
+  },
+  "pmRkvyTitle": "Pradhan Mantri Rashtriya Krishi Vikas Yojana (PM-RKVY)",
+  "pmRkvyDescription": "Promotes sustainable agriculture with {budget}, merging various schemes for flexibility.",
+  "@pmRkvyDescription": {
+    "placeholders": {
+      "budget": {"type": "String"}
+    }
+  },
+  "kyTitle": "Krishonnati Yojana (KY)",
+  "kyDescription": "Focuses on food security and agricultural self-sufficiency with {budget}.",
+  "@kyDescription": {
+    "placeholders": {
+      "budget": {"type": "String"}
+    }
+  },
+  "pmKisanTitle": "Pradhan Mantri Kisan Samman Nidhi (PM-KISAN)",
+  "pmKisanDescription": "Provides {amount} per year to small and marginal farmers in three installments.",
+  "@pmKisanDescription": {
+    "placeholders": {
+      "amount": {"type": "String"}
+    }
+  },
+  "pmfbyTitle": "Pradhan Mantri Fasal Bima Yojana (PMFBY)",
+  "pmfbyDescription": "Government-sponsored crop insurance scheme integrating multiple stakeholders.",
+  "pmksyTitle": "Pradhan Mantri Krishi Sinchai Yojana (PMKSY)",
+  "pmksyDescription": "Aims to improve irrigation efficiency with micro-irrigation systems.",
+  "pkvyTitle": "Paramparagat Krishi Vikas Yojana (PKVY)",
+  "pkvyDescription": "Promotes organic farming by forming clusters and covering certification costs.",
+  "soilHealthCardTitle": "Soil Health Card Scheme",
+  "soilHealthCardDescription": "Issues soil health cards to farmers to improve soil fertility and nutrient management."
+}
