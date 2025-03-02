@@ -66,7 +66,7 @@ class _HomePageState extends State<HomePage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Welcome, Farmer!",
+                  "Welcome, Grower!",
                   style: const TextStyle(
                     fontSize: 19,
                     fontWeight: FontWeight.bold,

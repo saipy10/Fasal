@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:intl/intl.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CropDetailPage extends StatefulWidget {
   final Map<String, dynamic> crop;
@@ -23,21 +22,17 @@ class _CropDetailPageState extends State<CropDetailPage> {
   String _formatDate(String date) {
     try {
       final parsedDate = DateTime.parse(date);
-      return DateFormat('MMM yy').format(parsedDate); // e.g., "Jan 25"
+      return DateFormat('MMM yy').format(parsedDate);
     } catch (e) {
-      return date.length >= 4
-          ? date.substring(2, 7)
-          : date; // Fallback to YY-MM
+      return date.length >= 4 ? date.substring(2, 7) : date;
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
     final String cropName = widget.crop['name'];
     final List<Map<String, dynamic>> history = widget.crop['history'] ?? [];
 
-    // Calculate stats
     final double avgPrice =
         history.isNotEmpty
             ? history.map((e) => e['price'] as double).reduce((a, b) => a + b) /
@@ -64,7 +59,7 @@ class _CropDetailPageState extends State<CropDetailPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("${cropName.capitalize()} ${l10n.details}"),
+        title: Text("${cropName.capitalize()} Details"),
         backgroundColor: Colors.green.shade700,
         elevation: 0,
       ),
@@ -114,9 +109,9 @@ class _CropDetailPageState extends State<CropDetailPage> {
                 const SizedBox(height: 24),
 
                 // Price Statistics
-                Text(
-                  l10n.priceStatistics,
-                  style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                const Text(
+                  "Price Statistics",
+                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 12),
                 Card(
@@ -130,17 +125,17 @@ class _CropDetailPageState extends State<CropDetailPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         _buildStatRow(
-                          l10n.averagePrice,
+                          "Average Price",
                           "₹${avgPrice.toStringAsFixed(0)}",
                         ),
                         const SizedBox(height: 8),
                         _buildStatRow(
-                          l10n.minimumPrice,
+                          "Minimum Price",
                           "₹${minPrice.toStringAsFixed(0)}",
                         ),
                         const SizedBox(height: 8),
                         _buildStatRow(
-                          l10n.maximumPrice,
+                          "Maximum Price",
                           "₹${maxPrice.toStringAsFixed(0)}",
                         ),
                       ],
@@ -150,9 +145,9 @@ class _CropDetailPageState extends State<CropDetailPage> {
                 const SizedBox(height: 24),
 
                 // Price Trend Chart
-                Text(
-                  l10n.priceTrend,
-                  style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                const Text(
+                  "Price Trend",
+                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 12),
                 Container(
@@ -170,12 +165,6 @@ class _CropDetailPageState extends State<CropDetailPage> {
                           gridData: FlGridData(
                             show: true,
                             drawVerticalLine: true,
-                            getDrawingHorizontalLine: (value) {
-                              return FlLine(
-                                color: Colors.grey.withOpacity(0.3),
-                                strokeWidth: 1,
-                              );
-                            },
                           ),
                           titlesData: FlTitlesData(
                             leftTitles: AxisTitles(
@@ -217,12 +206,6 @@ class _CropDetailPageState extends State<CropDetailPage> {
                                 },
                               ),
                             ),
-                            topTitles: AxisTitles(
-                              sideTitles: SideTitles(showTitles: false),
-                            ),
-                            rightTitles: AxisTitles(
-                              sideTitles: SideTitles(showTitles: false),
-                            ),
                           ),
                           borderData: FlBorderData(show: false),
                           minX: 0,
@@ -231,16 +214,17 @@ class _CropDetailPageState extends State<CropDetailPage> {
                           maxY: maxPrice * 1.1,
                           lineBarsData: [
                             LineChartBarData(
-                              spots: history
-                                  .asMap()
-                                  .entries
-                                  .map(
-                                    (e) => FlSpot(
-                                      e.key.toDouble(),
-                                      e.value['price'],
-                                    ),
-                                  )
-                                  .toList(),
+                              spots:
+                                  history
+                                      .asMap()
+                                      .entries
+                                      .map(
+                                        (e) => FlSpot(
+                                          e.key.toDouble(),
+                                          e.value['price'],
+                                        ),
+                                      )
+                                      .toList(),
                               isCurved: true,
                               color: Colors.green.shade700,
                               dotData: FlDotData(show: true),
@@ -250,19 +234,6 @@ class _CropDetailPageState extends State<CropDetailPage> {
                               ),
                             ),
                           ],
-                          lineTouchData: LineTouchData(
-                            enabled: true,
-                            touchTooltipData: LineTouchTooltipData(
-                              getTooltipItems: (touchedSpots) => touchedSpots
-                                  .map(
-                                    (spot) => LineTooltipItem(
-                                      '₹${spot.y.toStringAsFixed(0)}\n${_formatDate(history[spot.x.toInt()]['date'])}',
-                                      const TextStyle(color: Colors.white),
-                                    ),
-                                  )
-                                  .toList(),
-                            ),
-                          ),
                         ),
                       ),
                     ),
@@ -271,9 +242,9 @@ class _CropDetailPageState extends State<CropDetailPage> {
                 const SizedBox(height: 24),
 
                 // Additional Details
-                Text(
-                  l10n.marketInsights,
-                  style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                const Text(
+                  "Market Insights",
+                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 12),
                 Card(
@@ -287,41 +258,19 @@ class _CropDetailPageState extends State<CropDetailPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         _buildStatRow(
-                          l10n.priceChange,
+                          "Price Change",
                           "${priceChange.toStringAsFixed(1)}% (${priceChange >= 0 ? '▲' : '▼'})",
-                          valueColor: priceChange >= 0 ? Colors.green : Colors.red,
+                          valueColor:
+                              priceChange >= 0 ? Colors.green : Colors.red,
                         ),
                         const SizedBox(height: 8),
-                        _buildStatRow(l10n.dataPoints, history.length.toString()),
+                        _buildStatRow("Data Points", history.length.toString()),
                         const SizedBox(height: 8),
                         _buildStatRow(
-                          l10n.lastUpdated,
+                          "Last Updated",
                           history.isNotEmpty
                               ? _formatDate(history.last['date'])
                               : "N/A",
-                        ),
-                        const SizedBox(height: 12),
-                        const Divider(),
-                        const SizedBox(height: 12),
-                        Text(
-                          l10n.quickAnalysis,
-                          style: const TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        const SizedBox(height: 8),
-                        Text(
-                          history.isNotEmpty
-                              ? l10n.priceTrendAnalysis(
-                                  priceChange >= 0 ? l10n.positive : l10n.negative,
-                                  priceChange.abs().toStringAsFixed(1),
-                                )
-                              : l10n.noHistoricalData,
-                          style: TextStyle(
-                            fontSize: 14,
-                            color: Colors.grey.shade700,
-                          ),
                         ),
                       ],
                     ),

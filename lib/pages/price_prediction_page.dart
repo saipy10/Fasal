@@ -152,6 +152,7 @@ class _PricePredictionPageState extends State<PricePredictionPage> {
                     }
                   });
                 }),
+
                 const SizedBox(height: 15),
                 buildDropdown(
                   "Select Commodity",
@@ -226,12 +227,18 @@ class _PricePredictionPageState extends State<PricePredictionPage> {
     String? selectedValue,
     ValueChanged<String?> onChanged,
   ) {
+    final bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           label,
-          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 16,
+            color: isDarkMode ? Colors.white : Colors.black,
+          ),
         ),
         const SizedBox(height: 8),
         Container(
@@ -245,21 +252,34 @@ class _PricePredictionPageState extends State<PricePredictionPage> {
               value: selectedValue,
               isExpanded: true,
               elevation: 1,
-              dropdownColor: Colors.white,
+              dropdownColor: isDarkMode ? Colors.grey[900] : Colors.white,
               borderRadius: BorderRadius.circular(12),
-              hint: Text(label),
+              hint: Text(
+                label,
+                style: TextStyle(
+                  color: isDarkMode ? Colors.white70 : Colors.black87,
+                ),
+              ),
               items:
                   items
                       .map(
                         (item) => DropdownMenuItem<String>(
                           value: item,
-                          child: Text(item),
+                          child: Text(
+                            item,
+                            style: TextStyle(
+                              color: isDarkMode ? Colors.white : Colors.black,
+                            ),
+                          ),
                         ),
                       )
                       .toList(),
               onChanged: onChanged,
               menuMaxHeight: 200,
-              style: const TextStyle(fontSize: 14, color: Colors.black),
+              style: TextStyle(
+                fontSize: 14,
+                color: isDarkMode ? Colors.white : Colors.black,
+              ),
             ),
           ),
         ),
